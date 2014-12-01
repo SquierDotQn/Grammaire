@@ -25,5 +25,31 @@ public class Alphabet {
 		if(contains(s))
 			alphabet.remove(s);
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((alphabet == null) ? 0 : alphabet.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Alphabet other = (Alphabet) obj;
+		if (alphabet == null) {
+			if (other.alphabet != null)
+				return false;
+		} else if (!alphabet.equals(other.alphabet))
+			return false;
+		return true;
+	}
 	
 }
